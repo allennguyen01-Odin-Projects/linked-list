@@ -69,11 +69,20 @@ class LinkedList {
    * so you can print them out and preview them in the console.
    * The format should be: ( value ) -> ( value ) -> ( value ) -> null
    * */
+  toString() {
+    let returnString = '';
+    let currNode = this.head;
+    while (currNode != null) {
+      returnString += `(${currNode.value}) -> `;
+      currNode = currNode.next;
+    }
+    return `${returnString}null`;
+  }
 }
 
-// let ll = new LinkedList();
-// ll.append(9);
-// ll.append(3);
-// ll.append(10);
-// ll.append(8);
-// console.log(ll.toString()); // Outputs: (9) -> (3) -> null
+let ll = new LinkedList();
+ll.append(9);
+ll.append(3);
+ll.append(908);
+ll.append(8);
+console.log(ll.toString()); // Outputs: (9) -> (3) -> null
