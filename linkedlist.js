@@ -19,6 +19,18 @@ class LinkedList {
   /**
    * append(value) adds a new node containing value to the end of the list
    */
+  append(value) {
+    let newNode = new Node(value);
+    if (this.head == null) {
+      this.head = newNode;
+    } else {
+      let currNode = this.head;
+      while (currNode.next != null) {
+        currNode = currNode.next;
+      }
+      currNode.next = newNode;
+    }
+  }
 
   /**
    * prepend(value) adds a new node containing value to the start of the list
