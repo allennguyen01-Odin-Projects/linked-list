@@ -35,6 +35,18 @@ class LinkedList {
   /**
    * prepend(value) adds a new node containing value to the start of the list
    */
+  prepend(value) {
+    let newNode = new Node(value);
+    if (this.head == null) {
+      this.head = newNode;
+    } else {
+      let next = this.head;
+      this.head = newNode;
+      this.head.next = next;
+    }
+  }
+
+  /**
 
   /**
    * size returns the total number of nodes in the list
@@ -81,8 +93,10 @@ class LinkedList {
 }
 
 let ll = new LinkedList();
+ll.prepend(2);
 ll.append(9);
 ll.append(3);
 ll.append(908);
 ll.append(8);
+ll.prepend(1);
 console.log(ll.toString()); // Outputs: (9) -> (3) -> null
