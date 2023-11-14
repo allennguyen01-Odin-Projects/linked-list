@@ -47,10 +47,18 @@ class LinkedList {
   }
 
   /**
-
-  /**
    * size returns the total number of nodes in the list
    */
+  size() {
+    let size = 0;
+    let currNode = this.head;
+    while (currNode !== null) {
+      size++;
+      currNode = currNode.next;
+    }
+
+    return size;
+  }
 
   /**
    * head returns the first node in the list
@@ -92,11 +100,4 @@ class LinkedList {
   }
 }
 
-let ll = new LinkedList();
-ll.prepend(2);
-ll.append(9);
-ll.append(3);
-ll.append(908);
-ll.append(8);
-ll.prepend(1);
-console.log(ll.toString()); // Outputs: (9) -> (3) -> null
+module.exports = LinkedList;
