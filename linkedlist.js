@@ -13,7 +13,7 @@ class LinkedList {
    * which will represent the full list.
    */
   constructor() {
-    this.head = null;
+    this.llHead = null;
   }
 
   /**
@@ -21,10 +21,10 @@ class LinkedList {
    */
   append(value) {
     let newNode = new Node(value);
-    if (this.head == null) {
-      this.head = newNode;
+    if (this.llHead == null) {
+      this.llHead = newNode;
     } else {
-      let currNode = this.head;
+      let currNode = this.llHead;
       while (currNode.next != null) {
         currNode = currNode.next;
       }
@@ -37,12 +37,12 @@ class LinkedList {
    */
   prepend(value) {
     let newNode = new Node(value);
-    if (this.head == null) {
-      this.head = newNode;
+    if (this.llHead == null) {
+      this.llHead = newNode;
     } else {
-      let next = this.head;
-      this.head = newNode;
-      this.head.next = next;
+      let next = this.llHead;
+      this.llHead = newNode;
+      this.llHead.next = next;
     }
   }
 
@@ -51,7 +51,7 @@ class LinkedList {
    */
   size() {
     let size = 0;
-    let currNode = this.head;
+    let currNode = this.llHead;
     while (currNode !== null) {
       size++;
       currNode = currNode.next;
@@ -63,10 +63,23 @@ class LinkedList {
   /**
    * head returns the first node in the list
    */
+  head() {
+    return this.llHead;
+  }
 
   /**
    * tail returns the last node in the list
    */
+  tail() {
+    let currNode = this.llHead;
+    if (currNode === null) return currNode;
+
+    while (currNode.next !== null) {
+      currNode = currNode.next;
+    }
+
+    return currNode;
+  }
 
   /**
    * at(index) returns the node at the given index
@@ -91,7 +104,7 @@ class LinkedList {
    * */
   toString() {
     let returnString = '';
-    let currNode = this.head;
+    let currNode = this.llHead;
     while (currNode != null) {
       returnString += `(${currNode.value}) -> `;
       currNode = currNode.next;
