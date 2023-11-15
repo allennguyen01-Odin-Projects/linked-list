@@ -67,7 +67,15 @@ test('tail of short ll', () => {
 test('at of empty ll', () => {
   let ll = new LinkedList();
 
-  expect(ll.at(0)).toBe(4);
+  expect(ll.at(0)).toStrictEqual(Error('Index out of range'));
+});
+
+test('at of valid index', () => {
+  let ll = new LinkedList();
+  ll.append(1);
+  ll.append(2);
+
+  expect(ll.at(1).value).toBe(2);
 });
 
 test('at of invalid index', () => {
@@ -75,21 +83,13 @@ test('at of invalid index', () => {
   ll.append(1);
   ll.append(2);
 
-  expect(ll.at(1)).toBe(2);
-});
-
-test('at of invalid index', () => {
-  let ll = new LinkedList();
-  ll.append(1);
-  ll.append(2);
-
-  expect(ll.at(2)).toBe(Error('Index out of range'));
+  expect(ll.at(2)).toStrictEqual(Error('Index out of range'));
 });
 
 test('pop empty ll', () => {
   let ll = new LinkedList();
 
-  expect(ll.pop()).toBe(Error('Nothing to pop'));
+  expect(ll.pop()).toStrictEqual(Error('Nothing to pop'));
 });
 
 test('pop once', () => {
