@@ -84,6 +84,18 @@ class LinkedList {
   /**
    * at(index) returns the node at the given index
    */
+  at(index) {
+    let currNode = this.llHead;
+
+    while (index > 0) {
+      currNode = currNode.next;
+      index--;
+    }
+
+    if (currNode === null || index < 0) return new Error('Index out of range');
+
+    return currNode;
+  }
 
   /**
    * pop removes the last element from the list
