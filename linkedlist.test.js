@@ -92,14 +92,21 @@ test('pop empty ll', () => {
   expect(ll.pop()).toStrictEqual(Error('Nothing to pop'));
 });
 
-test('pop once', () => {
+test('pop size 1', () => {
+  let ll = new LinkedList();
+  ll.append(1);
+  ll.pop();
+
+  expect(ll.toString()).toBe('null');
+});
+
+test('pop size 2', () => {
   let ll = new LinkedList();
   ll.append(1);
   ll.append(2);
-  ll.append(3);
   ll.pop();
 
-  expect(ll.toString()).toBe('(1) -> (2) -> null');
+  expect(ll.toString()).toBe('(1) -> null');
 });
 
 test('contains false', () => {

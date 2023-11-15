@@ -100,6 +100,21 @@ class LinkedList {
   /**
    * pop removes the last element from the list
    */
+  pop() {
+    if (this.size() === 0) return new Error('Nothing to pop');
+
+    if (this.size() === 1) this.llHead = null;
+
+    if (this.size() > 1) {
+      let currNode = this.llHead;
+
+      while (currNode.next.next !== null) {
+        currNode = currNode.next;
+      }
+
+      currNode.next = null;
+    }
+  }
 
   /**
    * contains(value) returns true if the passed in value is in the list and otherwise returns false.
